@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Christmas Home Page</title>
+    <link rel="stylesheet" href="homepage.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(to bottom, #285ab7, #2a5298);
+        overflow: hidden;
+        color: #fff;
+      }
+
+      .header-container {   
+        position: absolute;
+        top: 10px;
+        width: 1150px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #2c59ac;
+        }
+
+
+.profile-buttons-container {
+font-family: "Segoe UI", ADLaM Display, Geneva, Verdana, sans-serif;
+display: flex;
+background-color: #2c59ac;
+align-items: center;
+gap: 10px;
+}
+
+
+button {
+font-family: "Segoe UI", ADLaM Display, Geneva, Verdana, sans-serif;
+width: 100px; 
+height: 40px;
+color: white;
+border-radius: 20px;
+cursor: pointer;
+background-color: rgb(8, 160, 233);
+border: none;
+font-size: 14px;
+font-weight: bold;
+transition: all 0.3s ease; 
+}
+
+button:hover {
+cursor: pointer;
+width: 150px; 
+background-color: rgb(0, 115, 168); 
+}
+
+
+.profile-pic img {
+background-color: #2c59ac;
+margin-right: 10px;
+cursor: pointer;
+border-radius: 50%;
+width: 100px;
+}
+
+
+.logo img {
+cursor: pointer;
+border: 2px solid black; 
+border-radius: 50%;
+width: 50px; 
+}
+
+
+.dropdown {
+position: relative;
+}
+
+.dropdown-menu {
+border-radius: 2px¬ø;
+display: block;
+position: absolute;
+top: 110%;
+right: 0;
+background-color: rgb(255, 255, 255);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+border-radius: 5px;
+z-index: 1;
+min-width: 100px;
+opacity: 0;
+transform: translateY(-10px);
+pointer-events: none;
+transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-menu a {
+color: black;
+text-decoration: none;
+display: block;
+padding: 10px 15px;
+font-family: Arial, sans-serif;
+}
+
+.dropdown:hover .dropdown-menu {
+opacity: 1;
+transform: translateY(0);
+pointer-events: auto;
+}
+
+hr {
+border: 0;
+height: 1px;
+background: #ccc;
+margin: 0;
+}
+
+.logo h2 a {
+font-family: ADLaM Display;
+cursor: pointer;
+text-decoration: none;
+color: black;
+}
+
+.logo h2 a:hover {
+cursor: pointer;
+color: rgb(74, 74, 74);
+}
+
+.reward-dropdown a {
+font-family: "Segoe UI", ADLaM Display, Geneva, Verdana, sans-serif;
+cursor: pointer;
+display: block;
+color: black;
+text-decoration: none;
+padding: 5px 10px;
+}
+
+.reward-dropdown .contents {
+position: absolute;
+border-radius: 10px;
+background-color: rgb(255, 255, 255);
+min-width: 5px;
+display: none;
+
+box-shadow: 2px 2px 5px black;
+}
+.reward-dropdown:hover .contents {
+display: block;
+}
+.contents-button a {
+display: block;
+width: 100%;
+padding: 10px 15px;
+text-decoration: none;
+color: black; 
+background-color: white; 
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contents-button a:hover {
+color: black; 
+}
+.quote-container {
+font-family: Tangerine;
+position: absolute;
+font-size: 24px;
+font-weight: bold;
+font-style: italic;
+opacity: 0;
+animation: fade-in-out 8s infinite;
+}
+
+      .snowflake {
+        position: absolute;
+        top: -10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        pointer-events: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+      }
+
+      @keyframes fall {
+        0% {
+          top: -10px;
+          opacity: 1;
+        }
+        100% {
+          top: 100vh;
+          opacity: 0.5;
+        }
+      }
+
+      .quote-container {
+        font-family: Tangerine;
+        position: absolute;
+        font-size: 24px;
+        font-weight: bold;
+        font-style: italic;
+        opacity: 0;
+        animation: fade-in-out 8s infinite;
+      }
+
+      @keyframes fade-in-out {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+    </style >
+  </head>
+  <body>
+    <div id="quote-container" class="quote-container" style="top: 10px;"></div>
+
+    <div class="header-container">
+      <div class="logo">
+        <a href="2-homepage.html">
+          <img src="/IMAGES/2412552-200.png" alt="Logo" />
+        </a>
+        <h2><a href="2-homepage.html" style="color: rgb(255, 255, 255);">CommUnity</a></h2>
+      </div>
+
+      <div class="profile-buttons-container">
+        <a href="4-help.html">
+          <button>HELP</button>
+        </a>
+        <a href="5-activities.html"> <button>ACTIVITIES</button></a>
+        <a href="8-blogs.html"><button>BLOGS</button></a>
+        
+        <a href="3-abouytus.html">
+          <button>ABOUT US</button>
+        </a>
+        <div class="reward-dropdown">
+          <a href="5-rewards.html"></a><button>REWARDS</button>
+          <div class="contents">
+            <p>
+              <a href="6-insert-points.html"
+                ><button style="background-color: white; color: black">
+                  MEDIA INPUT
+                </button></a
+              >
+            </p>
+            <div id="quote-container" class="quote-container"></div>
+            <a href="7-claim-points.html"
+              ><button style="background-color: white; color: black">
+                CLAIM POINTS
+              </button></a
+            >
+          </div>
+        </div>
+
+        <div class="dropdown profile-pic">
+          <a role="button" aria-haspopup="true">
+            <img src="/IMAGES/profile pic.webp" alt="Profile Picture" />
+          </a>
+
+          <div class="dropdown-menu">
+            <a href="/profile.html"
+              ><button style="background-color: white; color: black">
+                Profile
+              </button></a
+            >
+            <a href="/settings.html"
+              ><button style="background-color: white; color: black">
+                Settings
+              </button></a
+            >
+            <a href="1-login.html"
+              ><button style="background-color: white; color: black">
+                Logout
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    
+    <script>
+      function abtus() {
+        window.location.href = "AboutUs.html";
+      }
+
+      function help() {
+        window.location.href = "HelpPage.html";
+      }
+
+      function blogs() {
+        window.location.href = "blogs.html";
+      }
+
+      function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        document.body.appendChild(snowflake);
+
+        const size = Math.random() * 10 + 5;
+        const startX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 5 + 5;
+
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${startX}px`;
+        snowflake.style.animation = `fall ${duration}s linear`;
+
+        snowflake.addEventListener("animationend", () => {
+          snowflake.remove();
+        });
+      }
+
+      let snowflakeInterval = setInterval(createSnowflake, 200);
+
+setTimeout(() => {
+  clearInterval(snowflakeInterval);
+}, 10000);
+
+      
+
+      const quotes = [
+        "Alone we can do so little; together we can do so much. – Helen Keller",
+"The greatness of a community is most accurately measured by the compassionate actions of its members. – Coretta Scott King",
+"Coming together is a beginning. Keeping together is progress. Working together is success. – Henry Ford",
+"A strong community is built not by walls but by the strength of shared hearts.",
+"No one can whistle a symphony. It takes an orchestra to play it. – Halford E. Luccock",
+"In every community, there is work to be done. In every heart, there is the power to do it.",
+"It takes a village to raise a child. – African Proverb",
+"Teamwork makes the dream work. – John C. Maxwell",
+"The power of community to create health is far greater than any physician, clinic, or hospital. – Mark Hyman",
+"When 'I' is replaced by 'We,' even illness becomes wellness. – Malcolm X,",
+      ];
+
+      while (quotes.length < 500) {
+        quotes.push(...quotes);
+      }
+
+
+      let currentQuoteIndex = 0;
+
+      function showNextQuote() {
+        const quoteContainer = document.getElementById("quote-container");
+        const randomX = Math.random() * (window.innerWidth - 200) + 100;
+        const randomY = Math.random() * (window.innerHeight - 200) + 100;
+        quoteContainer.textContent = quotes[currentQuoteIndex];
+        quoteContainer.style.left = `${randomX}px`;
+        quoteContainer.style.top = `${randomY}px`;
+        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+      }
+
+      setInterval(showNextQuote, 8000);
+      showNextQuote();
+        
+    
+    </script>
+  </body>
+</html>
+

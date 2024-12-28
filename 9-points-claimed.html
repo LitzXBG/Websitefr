@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All in One Community!</title>
+
+    <style>
+      body {
+        font-family: Marker felt, sans-serif;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #e6f7ff; /* Light blue background */
+        color: #333;
+        background:  #2a5298;
+      }
+
+      /* Container for the header section */
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #2a5298;
+      }
+
+      /* Buttons and profile container */
+      .profile-buttons-container {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Space between buttons and profile picture */
+      }
+
+      /* Style for the buttons */
+      button {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: 100px; /* Initial width */
+        height: 40px;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        background-color: rgb(8, 160, 233);
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease; /* Smooth transition for hover effect */
+      }
+
+      button:hover {
+        cursor: pointer;
+        width: 150px; /* Expanded width on hover */
+        background-color: rgb(0, 115, 168); /* Darker blue on hover */
+      }
+
+      /* Style for the profile image */
+      .profile-pic img {
+        margin-right: 10px; /* Adjust the margin to move the image further to the right */
+        cursor: pointer;
+        border-radius: 50%;
+        width: 100px;
+      }
+
+      /* Logo styles */
+      .logo img {
+        cursor: pointer;
+        border: 2px solid black; /* Black outline around the logo */
+        border-radius: 50%; /* Circular shape for square images */
+        width: 50px; /* Ensure consistent size */
+      }
+
+      /* Dropdown menu */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        border-radius: 2px¬ø;
+        display: block;
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 1;
+        min-width: 100px;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .dropdown-menu a {
+        color: black;
+        text-decoration: none;
+        display: block;
+        padding: 10px 15px;
+        font-family: Arial, sans-serif;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background: #ccc;
+        margin: 0;
+      }
+
+      .logo h2 a {
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+      }
+
+      .logo h2 a:hover {
+        cursor: pointer;
+        color: rgb(74, 74, 74);
+      }
+
+      .reward-dropdown a {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+        display: block;
+        color: black;
+        text-decoration: none;
+        padding: 5px 10px;
+      }
+
+      .reward-dropdown .contents {
+        position: absolute;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        min-width: 5px;
+        display: none;
+
+        box-shadow: 2px 2px 5px black;
+      }
+      .reward-dropdown:hover .contents {
+        display: block;
+      }
+      .contents-button a {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: black; /* Text color to black */
+        background-color: white; /* Background color to white */
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .contents-button a:hover {
+        color: black; /* Text color remains black on hover */
+      }
+      h1{
+        margin-left: 500px;
+        font-family: ADLaM Display;
+        font-weight: bold;
+      }
+      .info-container {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            margin: 10px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .info-card h3 {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #FFD700;
+        }
+
+        .info-card p {
+            font-size: 16px;
+            color: #ddd;
+        }
+        .info-card a{
+            color: white;
+            text-decoration: none;
+        }
+        .info-card a:hover{
+            color: white;
+            text-decoration: underline;
+        }
+        .snowflake {
+        position: absolute;
+        top: -10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        pointer-events: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+      }
+
+      @keyframes fall {
+        0% {
+          top: -10px;
+          opacity: 1;
+        }
+        100% {
+          top: 100vh;
+          opacity: 0.5;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="header-container">
+      <div class="logo">
+        <a href="2-homepage.html">
+          <img src="/IMAGES/2412552-200.png" alt="Logo" />
+        </a>
+        <h2><a href="2-homepage.html" style="color: rgb(255, 255, 255);">CommUnity</a></h2>
+      </div>
+
+      <div class="profile-buttons-container">
+        <a href="4-help.html">
+          <button>HELP</button>
+        </a>
+        <a href="5-activities.html"> <button>ACTIVITIES</button></a>
+        <a href="8-blogs.html"><button>BLOGS</button></a>
+        
+        <a href="3-abouytus.html">
+          <button>ABOUT US</button>
+        </a>
+        <div class="reward-dropdown">
+          <a href="5-rewards.html"></a><button>REWARDS</button>
+          <div class="contents">
+            <p>
+              <a href="6-insert-points.html"
+                ><button style="background-color: white; color: black">
+                  MEDIA INPUT
+                </button></a
+              >
+            </p>
+            <a href="7-claim-points.html"
+              ><button style="background-color: white; color: black">
+                CLAIM POINTS
+              </button></a
+            >
+          </div>
+        </div>
+
+        <div class="dropdown profile-pic">
+          <a role="button" aria-haspopup="true">
+            <img src="/IMAGES/profile pic.webp" alt="Profile Picture" />
+          </a>
+
+          <div class="dropdown-menu">
+            <a href="/profile.html"
+              ><button style="background-color: white; color: black">
+                Profile
+              </button></a
+            >
+            <a href="/settings.html"
+              ><button style="background-color: white; color: black">
+                Settings
+              </button></a
+            >
+            <a href="1-login.html"
+              ><button style="background-color: white; color: black">
+                Logout
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+
+    <h1 style="color: white;">HERE ARE THE SERVICES YOU'VE DONE!</h1>
+    <div class="info-container">
+      <!-- Community 1 -->
+      <div class="info-card">
+          <img src="/IMAGES/download-4.jpg" alt="Community 1">
+          <h3>Gardening </h3>
+          <p >you have spent 3 hours!</p>
+          <p style="font-weight: bold;">You now have 30 points!</p>
+      
+    
+
+    <script>
+
+      function abtus() {
+        window.location.href = "AboutUs.html";
+      }
+
+      function help() {
+        window.location.href = "HelpPage.html";
+      }
+
+      function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        document.body.appendChild(snowflake);
+
+        const size = Math.random() * 10 + 5;
+        const startX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 5 + 5;
+
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${startX}px`;
+        snowflake.style.animation = `fall ${duration}s linear`;
+
+        snowflake.addEventListener("animationend", () => {
+          snowflake.remove();
+        });
+      }
+
+      let snowflakeInterval = setInterval(createSnowflake, 200);
+
+setTimeout(() => {
+  clearInterval(snowflakeInterval);
+}, 10000);
+
+      
+
+    </script>
+  </body>
+</html>

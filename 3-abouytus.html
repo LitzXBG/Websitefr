@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <style>
+      body {
+        font-family: ADLaM Display, sans-serif;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom, #285ab7, #2a5298);
+        color: #333;
+      }
+
+      
+      .header-container {
+         
+        font-family: ADLaM Display;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #2c59ac;
+      }
+
+     
+      .profile-buttons-container {
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+      }
+
+     
+      button {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: 100px; 
+        height: 40px;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        background-color: rgb(8, 160, 233);
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease; 
+      }
+
+      button:hover {
+        cursor: pointer;
+        width: 150px; 
+        background-color: rgb(0, 115, 168); 
+      }
+
+      
+      .profile-pic img {
+        margin-right: 10px; 
+        cursor: pointer;
+        border-radius: 50%;
+        width: 100px;
+      }
+
+      
+      .logo img {
+        cursor: pointer;
+        border: 2px solid black; 
+        border-radius: 50%;
+        width: 50px; 
+      }
+
+      
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        border-radius: 2px¬ø;
+        display: block;
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 1;
+        min-width: 100px;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .dropdown-menu a {
+        color: black;
+        text-decoration: none;
+        display: block;
+        padding: 10px 15px;
+        font-family: Arial, sans-serif;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      hr {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border: 0;
+        height: 1px;
+        background: #ccc;
+        margin: 0;
+      }
+
+      .logo h2 a {
+        font-family: ADLaM Display;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+      }
+
+      .logo h2 a:hover {
+        cursor: pointer;
+        color: rgb(74, 74, 74);
+      }
+
+      .reward-dropdown a {
+        cursor: pointer;
+        display: block;
+        color: black;
+        text-decoration: none;
+        padding: 5px 10px;
+      }
+
+      .reward-dropdown .contents {
+        position: absolute;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        min-width: 5px;
+        display: none;
+
+        box-shadow: 2px 2px 5px black;
+      }
+      .reward-dropdown:hover .contents {
+        display: block;
+      }
+      .contents-button a {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: black; 
+        background-color: white;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .contents-button a:hover {
+        font-family: ADLaM Display;
+        color: black; 
+      }
+
+     
+      .team {
+        font-family: ADLaM Display;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      }
+
+      .team-member {
+        font-family: ADLaM Display;
+        background: #f8f9fa;
+        border: 1px solid #cce5ff;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        text-align: center;
+        width: 300px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .team-member img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 3px solid #004085;
+        margin-bottom: 15px;
+      }
+
+      .team-member h3 {
+        font-family: ADLaM Display;
+        margin: 10px 0 5px;
+        color: #004085;
+        font-size: 20px;
+      }
+
+      .team-member p {
+        font-family: ADLaM Display;
+        font-size: 14px;
+        color: #666;
+      }
+
+      footer {
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        padding: 10px 0;
+        background-color: #004085;
+        color: #ffffff;
+      }
+
+      .logo h2 a {
+        font-family: ADLaM Display;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+      }
+
+      .logo h2 a:hover {
+        color: rgb(74, 74, 74);
+      }
+      .snowflake {
+        position: absolute;
+        top: -10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        pointer-events: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+      }
+
+      @keyframes fall {
+        0% {
+          top: -10px;
+          opacity: 1;
+        }
+        100% {
+          top: 100vh;
+          opacity: 0.5;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-container">
+    <div class="logo">
+      <a href="2-homepage.html">
+        <img src="/IMAGES/2412552-200.png" alt="Logo" />
+      </a>
+      <h2><a href="2-homepage.html" style="color: rgb(255, 255, 255);">CommUnity</a></h2>
+    </div>
+
+    <div class="profile-buttons-container">
+      <a href="4-help.html">
+        <button>HELP</button>
+      </a>
+      <a href="5-activities.html"> <button>ACTIVITIES</button></a>
+      <a href="8-blogs.html"><button>BLOGS</button></a>
+      
+      <a href="3-abouytus.html">
+        <button>ABOUT US</button>
+      </a>
+      <div class="reward-dropdown">
+        <a href="5-rewards.html"></a><button>REWARDS</button>
+        <div class="contents">
+          <p>
+            <a href="6-insert-points.html"
+              ><button style="background-color: white; color: black">
+                MEDIA INPUT
+              </button></a
+            >
+          </p>
+          <a href="7-claim-points.html"
+            ><button style="background-color: white; color: black">
+              CLAIM POINTS
+            </button></a
+          >
+        </div>
+      </div>
+
+      <div class="dropdown profile-pic">
+        <a role="button" aria-haspopup="true">
+          <img src="/IMAGES/profile pic.webp" alt="Profile Picture" />
+        </a>
+
+        <div class="dropdown-menu">
+          <a href="/profile.html"
+            ><button style="background-color: white; color: black">
+              Profile
+            </button></a
+          >
+          <a href="/settings.html"
+            ><button style="background-color: white; color: black">
+              Settings
+            </button></a
+          >
+          <a href="1-login.html"
+            ><button style="background-color: white; color: black">
+              Logout
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <script>function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      document.body.appendChild(snowflake);
+
+      const size = Math.random() * 10 + 5;
+      const startX = Math.random() * window.innerWidth;
+      const duration = Math.random() * 5 + 5;
+
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
+      snowflake.style.left = `${startX}px`;
+      snowflake.style.animation = `fall ${duration}s linear`;
+
+      snowflake.addEventListener("animationend", () => {
+        snowflake.remove();
+      });
+    }
+
+    let snowflakeInterval = setInterval(createSnowflake, 200);
+
+setTimeout(() => {
+clearInterval(snowflakeInterval);
+}, 20000);
+</script>
+
+    <div class="container">
+      <h1 style="font-family: ADLaM Display; color: white;">About Us</h1>
+      <p style="font-family: ADLaM Display; color: white;">
+        Welcome to our website! At <strong>TummalalaDivit.com</strong>, this is
+        a community website that strives to help the people in the community.
+        The purpose of this website is to encourage others to do good for the
+        community.
+      </p>
+
+      <h2 style="font-family: ADLaM Display; color: white;">Our Team</h2>
+      <div class="team">
+        <div class="team-member">
+          <img src="/IMAGES/Circle Crop Tool Image (1).jpg" alt="Tummalala" />
+          <h3>Tummalala</h3>
+          <p>CEO & Founder. I came up with the idea for this website that aims to benefit the community in numerous ways</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/IMAGES/Round Cropping Tool.jpg" alt="Divit" />
+          <h3>Divitooo</h3>
+          <p>CEO. I helped Tummalala with the idea and helped to design the website to give it a modern and pleasant look.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/IMAGES/IMG_7089.jpg" alt="Ashwin" />
+          <h3>Ashwin</h3>
+          <p>he is a founder. He has helped us create some of the code, naming conventions and other miscellaneous stuff. </p>
+        </div>
+      </div>
+    </div>
+
+    <footer style="font-family: ADLaM Display;">&copy; 2024 TummalalaDivit Solutions | All Rights Reserved</footer>
+  </body>
+  
+  <script>
+  function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    document.body.appendChild(snowflake);
+
+    const size = Math.random() * 10 + 5;
+    const startX = Math.random() * window.innerWidth;
+    const duration = Math.random() * 5 + 5;
+
+    snowflake.style.width = `${size}px`;
+    snowflake.style.height = `${size}px`;
+    snowflake.style.left = `${startX}px`;
+    snowflake.style.animation = `fall ${duration}s linear`;
+
+    snowflake.addEventListener("animationend", () => {
+      snowflake.remove();
+    });
+  }
+
+  let snowflakeInterval = setInterval(createSnowflake, 200);
+
+setTimeout(() => {
+clearInterval(snowflakeInterval);
+}, 20000);
+</script>
+     
+
+      
+ 
+</html>

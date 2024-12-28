@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <style>
+      body {
+        font-family: ADLaM Display, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        background: linear-gradient(to right, rgb(255, 0, 0), rgb(255, 215, 0));
+      }
+      .login-container {
+        background: linear-gradient(to left, rgb(255, 0, 0), rgb(255, 215, 0));
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+      }
+      .login-container h2 {
+        margin-bottom: 20px;
+      }
+      .login-container input {
+        width: 95%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .login-container button {
+        width: 100%;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .login-container button:hover {
+        background-color: #218838;
+      }
+      .error {
+        color: red;
+        margin: 10px 0;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+        display: block;
+        margin-top: 15px;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .snowflake {
+        position: absolute;
+        top: -10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        pointer-events: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+        z-index: 1;
+      }
+      @keyframes fall {
+        0% {
+          top: -10px;
+          opacity: 1;
+        }
+        100% {
+          top: 100vh;
+          opacity: 0.5;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <div id="errorMessage" class="error"></div>
+        <button type="submit">Login</button>
+        <a href="1.5-signup-page.html">Don't have an account? Click here</a>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const errorMessage = document.getElementById("errorMessage");
+
+          const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+          const validUser = accounts.find(
+            (account) => account.email === email && account.password === password
+          );
+
+          if (validUser) {
+            window.location.href = "2-homepage.html";
+          } else {
+            errorMessage.innerText = "Invalid email or password!";
+          }
+        });
+
+      function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        document.body.appendChild(snowflake);
+
+        const size = Math.random() * 10 + 5;
+        const startX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 5 + 5;
+
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${startX}px`;
+        snowflake.style.animation = `fall ${duration}s linear`;
+
+        snowflake.addEventListener("animationend", () => {
+          snowflake.remove();
+        });
+      }
+
+      setInterval(createSnowflake, 200);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Page</title>
+  <style>
+    body {
+      font-family: AdLAM Display, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #285ab7, #2a5298);
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: rgb(8, 160, 233);
+      margin-top: 20px;
+    }
+
+    .help-container {
+      font-family: AdLAM Display;
+      width: 90%;
+      max-width: 600px;
+      margin: 30px auto;
+      background-color: #ffffff; 
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .help-container p {
+      font-family: AdLAM Display;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: rgb(0, 0, 0);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      height: 120px;
+    }
+
+    .submit-btn {
+      font-family: AdLAM Display;
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: rgb(8, 160, 233);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      width: 100%;
+      background-color: rgb(0, 110, 161);
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #e6f7ff; 
+        color: #333;
+      }
+
+     
+      .header-container {
+        font-family: AdLAM Display;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #2c59ac;;
+      }
+
+      
+      .profile-buttons-container {
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+      }
+
+      
+      button {
+        font-family: AdLAM Display;
+        width: 100px; 
+        height: 40px;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        background-color: rgb(8, 160, 233);
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease; 
+      }
+
+      button:hover {
+        cursor: pointer;
+        width: 150px; 
+        background-color: rgb(0, 115, 168); 
+      }
+
+      
+      .profile-pic img {
+        margin-right: 10px; 
+        cursor: pointer;
+        border-radius: 50%;
+        width: 100px;
+      }
+
+     
+      .logo img {
+        cursor: pointer;
+        border: 2px solid black; 
+        border-radius: 50%; 
+        width: 50px; 
+      }
+
+     
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        border-radius: 2px¬ø;
+        display: block;
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 1;
+        min-width: 100px;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .dropdown-menu a {
+        color: black;
+        text-decoration: none;
+        display: block;
+        padding: 10px 15px;
+        font-family: Arial, sans-serif;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      hr {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        border: 0;
+        height: 1px;
+        background: #ccc;
+        margin: 0;
+      }
+
+      .logo h2 a {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+      }
+
+      .logo h2 a:hover {
+        cursor: pointer;
+        color: rgb(74, 74, 74);
+      }
+
+      .reward-dropdown a {
+        cursor: pointer;
+        display: block;
+        color: black;
+        text-decoration: none;
+        padding: 5px 10px;
+      }
+
+      .reward-dropdown .contents {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        position: absolute;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        min-width: 5px;
+        display: none;
+
+        box-shadow: 2px 2px 5px black;
+      }
+      .reward-dropdown:hover .contents {
+        display: block;
+      }
+      .contents-button a {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: black; 
+        background-color: white; 
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .contents-button a:hover {
+        color: black; 
+      }
+      .snowflake {
+        position: absolute;
+        top: -10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        pointer-events: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+      }
+
+      @keyframes fall {
+        0% {
+          top: -10px;
+          opacity: 1;
+        }
+        100% {
+          top: 100vh;
+          opacity: 0.5;
+        }
+      }
+  </style>
+</head>
+<body>
+  <div class="header-container">
+    <div class="logo">
+      <a href="2-homepage.html">
+        <img src="/IMAGES/2412552-200.png" alt="Logo" />
+      </a>
+      <h2><a href="2-homepage.html" style="color: rgb(255, 255, 255); font-family: AdLAM Display;">CommUnity</a></h2>
+    </div>
+
+    <div class="profile-buttons-container">
+      <a href="4-help.html">
+        <button>HELP</button>
+      </a>
+      <a href="5-activities.html"> <button>ACTIVITIES</button></a>
+      <a href="8-blogs.html"><button>BLOGS</button></a>
+      
+      <a href="3-abouytus.html">
+        <button>ABOUT US</button>
+      </a>
+      <div class="reward-dropdown">
+        <a href="5-rewards.html"></a><button>REWARDS</button>
+        <div class="contents">
+          <p>
+            <a href="6-insert-points.html"
+              ><button style="background-color: white; color: black">
+                MEDIA INPUT
+              </button></a
+            >
+          </p>
+          <a href="7-claim-points.html"
+            ><button style="background-color: white; color: black">
+              CLAIM POINTS
+            </button></a
+          >
+        </div>
+      </div>
+
+      <div class="dropdown profile-pic">
+        <a role="button" aria-haspopup="true">
+          <img src="/IMAGES/profile pic.webp" alt="Profile Picture" />
+        </a>
+
+        <div class="dropdown-menu">
+          <a href="/profile.html"
+            ><button style="background-color: white; color: black">
+              Profile
+            </button></a
+          >
+          <a href="/settings.html"
+            ><button style="background-color: white; color: black">
+              Settings
+            </button></a
+          >
+          <a href="1-login.html"
+            ><button style="background-color: white; color: black">
+              Logout
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  
+
+  <h1 style="color: white; font-family: AdLAM Display;">Help Center</h1>
+  <div class="help-container">
+    <p>
+      Have any questions or doubts? Submit your query below, and we'll get back to you as soon as possible!
+    </p>
+    <form onsubmit="submitEnquiry(event)">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="question">Your Question or Doubt</label>
+        <textarea id="question" name="question" placeholder="Enter your question here" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <div class="footer">
+    <p>
+      Need further assistance? Contact us:<br>
+      <strong>Phone:</strong> 80724783 | 
+      <strong>Email:</strong> <a href="mailto:sukumar_ashwin@students.edu.sg">sukumar_ashwin@students.edu.sg</a>
+    </p>
+    <p>&copy; 2024 Your Website | All Rights Reserved</p>
+  </div>
+
+  <script>
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      document.body.appendChild(snowflake);
+      const size = Math.random() * 10 + 5;
+      const startX = Math.random() * window.innerWidth;
+      const duration = Math.random() * 5 + 5;
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
+      snowflake.style.left = `${startX}px`;
+      snowflake.style.animation = `fall ${duration}s linear`;
+      snowflake.addEventListener("animationend", () => {
+        snowflake.remove();
+      });
+    }
+
+    let snowflakeInterval = setInterval(createSnowflake, 200);
+    setTimeout(() => {
+      clearInterval(snowflakeInterval);
+    }, 20000);
+
+    function submitEnquiry(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const question = document.getElementById('question').value;
+      const mailtoLink = `mailto:sukumar_ashwin@students.edu.sg?subject=Help Center Enquiry&body=Name: ${name}%0AEmail: ${email}%0AQuestion: ${question}`;
+      window.location.href = mailtoLink;
+    }
+    </script>
+  </body>
+</html>

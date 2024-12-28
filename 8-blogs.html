@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Blogs Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #285ab7, #2a5298);
+      background-attachment: fixed;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #fff;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 3px #00000055;
+    }
+
+    .blog-container {
+        
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      border: 2px solid #ffd700;
+    }
+
+    .write-btn {
+      display: block;
+      width: 280px;
+      margin: 10px auto;
+      background: linear-gradient(to bottom, #285ab7, #2a5298);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    .write-btn:hover {
+        width:400px ;
+        background: linear-gradient(to bottom, #1a4698, #1f4281);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 2px solid #ffd700;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal h2 {
+      margin-top: 0;
+      color: #b91d1d;
+      text-align: center;
+    }
+
+    .modal input,
+    .modal textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .modal button {
+      background-color: #b91d1d;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal button:hover {
+      background-color: #991111;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .blogs-list {
+      margin-top: 20px;
+    }
+
+    .blog-entry {
+      border: 2px solid #ffd700;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      padding: 15px;
+      background-color: #fffaf0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-entry h3 {
+      margin: 0 0 10px;
+      color: #b91d1d;
+      font-size: 1.5rem;
+    }
+
+    .blog-entry p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .error-msg {
+      color: red;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px 0;
+      background: linear-gradient(to bottom, #285ab7, #2a5298);
+      color: white;
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    .footer a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .back-button {
+      width: 20;
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      padding: 10px;
+      text-align: center;
+      background-color: #098205;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .back-button:hover {
+      background-color: #064115;
+    }
+    body {
+        font-family: ADLaM Display, sans-serif;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #e6f7ff; 
+        color: #333;
+        background: linear-gradient(to bottom, #285ab7, #2a5298);
+      }
+
+      
+      .header-container {   
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #2c59ac;
+      }
+
+      /* Buttons and profile container */
+      .profile-buttons-container {
+        font-family: "Segoe UI", ADLaM Display, Geneva, Verdana, sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Space between buttons and profile picture */
+      }
+
+      /* Style for the buttons */
+      button {
+        font-family: "Segoe UI", ADLaM Display, Geneva, Verdana, sans-serif;
+        width: 100px; /* Initial width */
+        height: 40px;
+        color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        background-color: rgb(8, 160, 233);
+        border: none;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease; /* Smooth transition for hover effect */
+      }
+
+      button:hover {
+        cursor: pointer;
+        width: 150px; /* Expanded width on hover */
+        background-color: rgb(0, 115, 168); /* Darker blue on hover */
+      }
+
+      /* Style for the profile image */
+      .profile-pic img {
+        
+        margin-right: 10px; /* Adjust the margin to move the image further to the right */
+        cursor: pointer;
+        border-radius: 50%;
+        width: 100px;
+      }
+
+      /* Logo styles */
+      .logo img {
+        cursor: pointer;
+        border: 2px solid black; /* Black outline around the logo */
+        border-radius: 50%; /* Circular shape for square images */
+        width: 50px; /* Ensure consistent size */
+      }
+
+      /* Dropdown menu */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        border-radius: 2px¬ø;
+        display: block;
+        position: absolute;
+        top: 110%;
+        right: 0;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 1;
+        min-width: 100px;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .dropdown-menu a {
+        color: black;
+        text-decoration: none;
+        display: block;
+        padding: 10px 15px;
+        font-family: Arial, sans-serif;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background: #ccc;
+        margin: 0;
+      }
+
+      .logo h2 a {
+        font-family: ADLaM Display;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
+      }
+
+      .logo h2 a:hover {
+        cursor: pointer;
+        color: rgb(74, 74, 74);
+      }
+
+      .reward-dropdown a {
+        font-family: "Segoe UI", ADLaM Display, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+        display: block;
+        color: black;
+        text-decoration: none;
+        padding: 5px 10px;
+      }
+
+      .reward-dropdown .contents {
+        position: absolute;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        min-width: 5px;
+        display: none;
+
+        box-shadow: 2px 2px 5px black;
+      }
+      .reward-dropdown:hover .contents {
+        display: block;
+      }
+      .contents-button a {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: black; /* Text color to black */
+        background-color: white; /* Background color to white */
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .contents-button a:hover {
+        color: black; /* Text color remains black on hover */
+      }
+      .snowflake {
+        position: absolute;
+        top: -10px;
+        background-color: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        pointer-events: none;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+      }
+
+      @keyframes fall {
+        0% {
+          top: -10px;
+          opacity: 1;
+        }
+        100% {
+          top: 100vh;
+          opacity: 0.5;
+        }
+      }
+  </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="logo">
+          <a href="2-homepage.html">
+            <img src="/IMAGES/2412552-200.png" alt="Logo" />
+          </a>
+          <h2><a href="2-homepage.html" style="color: rgb(255, 255, 255);">CommUnity</a></h2>
+        </div>
+  
+        <div class="profile-buttons-container">
+          <a href="4-help.html">
+            <button>HELP</button>
+          </a>
+          <a href="5-activities.html"> <button>ACTIVITIES</button></a>
+          <a href="8-blogs.html"><button>BLOGS</button></a>
+          
+          <a href="3-abouytus.html">
+            <button>ABOUT US</button>
+          </a>
+          <div class="reward-dropdown">
+            <a href="5-rewards.html"></a><button>REWARDS</button>
+            <div class="contents">
+              <p>
+                <a href="6-insert-points.html"
+                  ><button style="background-color: white; color: black">
+                    MEDIA INPUT
+                  </button></a
+                >
+              </p>
+              <a href="7-claim-points.html"
+                ><button style="background-color: white; color: black">
+                  CLAIM POINTS
+                </button></a
+              >
+            </div>
+          </div>
+  
+          <div class="dropdown profile-pic">
+            <a role="button" aria-haspopup="true">
+              <img src="/IMAGES/profile pic.webp" alt="Profile Picture" />
+            </a>
+  
+            <div class="dropdown-menu">
+              <a href="/profile.html"
+                ><button style="background-color: white; color: black">
+                  Profile
+                </button></a
+              >
+              <a href="/settings.html"
+                ><button style="background-color: white; color: black">
+                  Settings
+                </button></a
+              >
+              <a href="1-login.html"
+                ><button style="background-color: white; color: black">
+                  Logout
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+  <h1>🎄 Christmas Blogs 🎄</h1>
+  <div class="blog-container">
+    <button class="write-btn" onclick="openModal()">Write Your Experience</button>
+
+    <div class="blogs-list" id="blogsList">
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="closeModal()"></div>
+  <div class="modal" id="modal">
+    <h2>🎅 Share Your Experience 🎅</h2>
+    <input type="text" id="userName" placeholder="Your Name" required>
+    <textarea id="userExperience" rows="4" placeholder="Write your experience..." required></textarea>
+    <p class="error-msg" id="errorMsg"></p>
+    <button onclick="submitExperience()">Submit</button>
+    <button onclick="closeModal()">Cancel</button>
+  </div>
+  </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2024 Christmas Blogs | Need help? <a href="mailto:support@christmasblogs.com">Contact Us</a>
+  </div>
+
+  <script>
+    function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        document.body.appendChild(snowflake);
+
+        const size = Math.random() * 10 + 5;
+        const startX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 5 + 5;
+
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${startX}px`;
+        snowflake.style.animation = `fall ${duration}s linear`;
+
+        snowflake.addEventListener("animationend", () => {
+          snowflake.remove();
+        });
+      }
+
+      let snowflakeInterval = setInterval(createSnowflake, 200);
+
+setTimeout(() => {
+  clearInterval(snowflakeInterval);
+}, 10000);
+
+    function openModal() {
+      document.getElementById('modal').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('errorMsg').innerText = '';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function submitExperience() {
+      const name = document.getElementById('userName').value.trim();
+      const experience = document.getElementById('userExperience').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+
+      const wordCount = experience.split(/\s+/).length;
+
+      if (name && experience) {
+        if (wordCount > 100) {
+          errorMsg.innerText = 'You exceeded 100 words! Please write less than 100.';
+          return;
+        }
+
+        const blogList = document.getElementById('blogsList');
+        const blogEntry = document.createElement('div');
+        blogEntry.classList.add('blog-entry');
+        blogEntry.innerHTML = `
+          <h3>${name}</h3>
+          <p>${experience}</p>
+        `;
+
+        blogList.appendChild(blogEntry);
+
+        document.getElementById('userName').value = '';
+        document.getElementById('userExperience').value = '';
+        closeModal();
+      } else {
+        errorMsg.innerText = 'Please fill out both fields.';
+      }
+    }
+  </script>
+</body>
+</html>
